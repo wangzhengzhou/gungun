@@ -6,10 +6,20 @@
         </div>
     </button>
 </template>
-<script>
-    export default {
-        props:['icon','iconPosition']        
-    };
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+    props:{
+            icon:{},
+            iconPosition:{
+                type:String,
+                default:'left',
+                validator(value){
+                    return value==='left'||value==='right'
+                }//验证器，验证iconPosition为left或right中的一个
+            }
+        }    
+})
 </script>
 <style lang="scss" scoped>
     .g-button {
