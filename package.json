@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/wangzhengzhou/gungun/issues"
   },
-  "homepage": "https://github.com/wangzhengzhou/gungun#readme"
+  "homepage": "https://github.com/wangzhengzhou/gungun#readme",
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
 }
