@@ -1,10 +1,21 @@
 .g-button[data-v-81310f] {
   font-size: var(--font-size);
   height: var(--button-height);
-  padding: 0 1em;
+  padding: 0 15px;
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
   background: var(--button-bg);
+  display: inline-flex;
+  justify-content: center;
+  vertical-align: middle;
+  align-items: center;
+}
+.g-button .icon[data-v-81310f] {
+  order: 1;
+  margin-right: 4px;
+}
+.g-button .content[data-v-81310f] {
+  order: 2;
 }
 .g-button[data-v-81310f]:hover {
   border-color: var(--border-color-hover);
@@ -14,4 +25,11 @@
 }
 .g-button[data-v-81310f]:focus {
   outline: none;
+}
+.g-button.icon-right .content[data-v-81310f] {
+  order: 1;
+}
+.g-button.icon-right .icon[data-v-81310f] {
+  order: 2;
+  margin: 0 0 0 4px;
 }
