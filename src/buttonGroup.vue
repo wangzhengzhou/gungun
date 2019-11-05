@@ -6,7 +6,14 @@
 <script lang="ts">
     import Vue from 'vue'
     export default Vue.extend({
-        
+        mounted(){
+            for(let node of this.$el.children){
+                let name = node.nodeName.toLowerCase()
+                if(name!=='button'){
+                    console.warn(`g-gutton-group 的子元素应该全是 g-gutton,但你写的是 ${name}`)//判断用户的写法是否标准，以免引起css混乱
+                }
+            }
+        }
     })
 </script>
 <style lang="scss" scoped>
