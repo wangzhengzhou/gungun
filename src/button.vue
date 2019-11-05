@@ -1,8 +1,9 @@
 <template>
     <button class="g-button" :class="{[`icon-${iconPosition}`]:true}">
-        <g-icon v-if="icon" :name="icon"></g-icon>
-            <!-- <svg class="icon" v-if="icon"><use :xlink:href="`#i-${icon}`"></use></svg> -->
-            <div class="content">
+        <g-icon v-if="icon" :name="icon" class="icon"></g-icon>
+        <!-- <svg class="icon" v-if="icon"><use :xlink:href="`#i-${icon}`"></use></svg> -->
+        <g-icon class="loading" name="loading"></g-icon>
+        <div class="content">
             <slot/>
         </div>
     </button>
@@ -24,6 +25,17 @@ export default Vue.extend({
 })
 </script>
 <style lang="scss" scoped>
+    @keyframes spin{
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+    .loading{
+        animation: spin 1s infinite linear;
+    }
     .g-button {
         font-size: var(--font-size);
         height: var(--button-height);
