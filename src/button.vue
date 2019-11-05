@@ -1,7 +1,8 @@
 <template>
     <button class="g-button" :class="{[`icon-${iconPosition}`]:true}">
-        <svg class="icon" v-if="icon"><use :xlink:href="`#i-${icon}`"></use></svg>
-        <div class="content">
+        <g-icon v-if="icon" :name="icon"></g-icon>
+            <!-- <svg class="icon" v-if="icon"><use :xlink:href="`#i-${icon}`"></use></svg> -->
+            <div class="content">
             <slot/>
         </div>
     </button>
@@ -9,6 +10,7 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
+    //props:['icon','iconPosition']
     props:{
             icon:{},
             iconPosition:{
