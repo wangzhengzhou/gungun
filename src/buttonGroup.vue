@@ -22,9 +22,11 @@
         vertical-align: middle;
         .g-button{
             border-radius: 0;
-            margin-left: -1px;
+            &:not(:first-child){
+                margin-left: -1px;
+            }
             /* &:not(:first-child){
-                border-left: none;
+                border-left: none;//会导致hover时无法浮起
             } */
             &:first-child{
                 border-top-left-radius: var(--border-radius);
