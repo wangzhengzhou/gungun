@@ -1,8 +1,9 @@
 <template>
-    <button class="g-button" :class="{[`icon-${iconPosition}`]:true}">
-        <g-icon v-if="icon" :name="icon" class="icon"></g-icon>
+    <button class="g-button" :class="{[`icon-${iconPosition}`]:true}" 
+    @click="$emit('click')"><!-- @click="$emit('click')"等同于在methods里面写事件this.$emit('click'),标签中可以不用this -->
+        <g-icon v-if="icon&&!loading" :name="icon" class="icon"></g-icon>
         <!-- <svg class="icon" v-if="icon"><use :xlink:href="`#i-${icon}`"></use></svg> -->
-        <g-icon class="loading" name="loading"></g-icon>
+        <g-icon class="loading icon" v-if="loading" name="loading"></g-icon>
         <div class="content">
             <slot/>
         </div>
@@ -14,18 +15,22 @@ export default Vue.extend({
     //props:['icon','iconPosition']
     props:{
             icon:{},
+            loading:{
+                type:Boolean,
+                default:false
+            },
             iconPosition:{
                 type:String,
                 default:'left',
                 validator(value){
                     return value==='left'||value==='right'
-                }//验证器，验证iconPosition为left或right中的一个
+                }//验证器，验证iconPosition为left或right中的一个否则报错
             }
         }    
 })
 </script>
 <style lang="scss" scoped>
-    @keyframes spin{
+    @keyframes spin{/* 自定义动画spin */
         0%{
             transform: rotate(0deg);
         }
@@ -34,7 +39,7 @@ export default Vue.extend({
         }
     }
     .loading{
-        animation: spin 1s infinite linear;
+        animation: spin 1s infinite linear;/* infinite无限滚动，linear线性动 */
     }
     .g-button {
         font-size: var(--font-size);

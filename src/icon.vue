@@ -11,5 +11,6 @@ export default Vue.extend({
         .g-icon{
             width: 1em;
             height: 1em;
+            fill: rgba(60,134,255,0.8)/* 改变svg图标颜色 */
         } 
 </style>
