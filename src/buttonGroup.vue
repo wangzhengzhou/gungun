@@ -7,7 +7,6 @@
     import Vue from 'vue'
     export default Vue.extend({
         mounted(){
-            console.log(this)
             for(let node of this.$el.children){
                 let name = node.nodeName.toLowerCase()
                 if(name!=='button'){
