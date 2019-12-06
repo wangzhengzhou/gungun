@@ -2,10 +2,10 @@
     <svg class="g-icon"><use :xlink:href="`#i-${name}`"></use></svg>
 </template>
 <script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
-    props:['name']
-})
+    import Vue from 'vue'
+    export default Vue.extend({
+        props:['name']
+    })
 </script>
 <style lang="scss" scoped>
         .g-icon{

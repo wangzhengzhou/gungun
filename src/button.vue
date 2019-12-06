@@ -11,8 +11,12 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
+import Icon from './icon.vue'
 export default Vue.extend({
     //props:['icon','iconPosition']
+    components:{
+        'g-icon' : Icon
+    },
     props:{
             icon:{},
             loading:{
