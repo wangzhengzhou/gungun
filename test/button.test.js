@@ -5,7 +5,7 @@ import Button from '../src/button'
 Vue.config.productionTip = false
 Vue.config.devtools = false
 
-/* 行为驱动测试BDD：描述了button的一系列行为,由Mocha引入 */
+/* 行为驱动测试BDD：描述了button的一系列行为,由Mocha引入;expect断言由chai引入 */
 describe('Button', () => {
     it('存在.', () => {//描述它存在
         expect(Button).to.be.ok
@@ -24,6 +24,7 @@ describe('Button', () => {
         /* expect([1,2]).to.deep.eq([1,2]) 当判断两个对象/数组时需要用deep，比较内部内容*/
         /* expect(xxx).to.have.property(yyy)判断xxx拥有yyy的属性 */
         /* expect(xxx).to.have.property(yyy).but.not.own.property(yyy)判断xxx拥有yyy的属性但是不拥有自己的属性yyy,是继承的属性 */
+        /* 以上语法参考chai.js */
         vm.$destroy()
     })
     it('可以设置loading.', () => {//描述它可以设置loading
