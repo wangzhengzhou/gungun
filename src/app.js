@@ -23,6 +23,7 @@ chai.use(spies)
 
 const expect = chai.expect
 try{
+    /* 测试button含有icon */
     {
         let Constructor = Vue.extend(Button)//把button组件变成构造函数
         const vm = new Constructor({
@@ -37,6 +38,7 @@ try{
         vm.$el.remove()//测试完删除vm元素
         vm.$destroy()//删除vm对象
     }
+    /* 测试button类型为loading */
     {
         let Constructor = Vue.extend(Button)//把button组件变成构造函数
         const vm = new Constructor({
@@ -52,6 +54,7 @@ try{
         vm.$el.remove()//测试完删除vm元素
         vm.$destroy()//删除vm对象
     }
+    /* 测试svg的order为1 */
     {
         const div = document.createElement('div')
         document.body.append(div)//需要页面渲染才能计算样式
@@ -68,6 +71,7 @@ try{
         vm.$el.remove()//测试完删除vm元素
         vm.$destroy()//删除vm对象
     }
+    /* 测试iconPosition正确，order为2 */
     {
         const div = document.createElement('div')
         document.body.append(div)//需要页面渲染才能计算样式
@@ -85,6 +89,7 @@ try{
         vm.$el.remove()//测试完删除vm元素
         vm.$destroy()//删除vm对象
     }
+    /* 测试click被调用 */
     {
         //mock
         const Constructor = Vue.extend(Button)//把button组件变成构造函数
@@ -96,7 +101,7 @@ try{
         vm.$mount()//将实例挂载到页面上
         let spy = chai.spy(function(){})//声明一个spy间谍函数
         vm.$on('click', spy)//事件触发时spy会替代执行函数
-        let button = vm.$el
+        let button = vm.$el/* 不需要找，元素本身就是 */
         button.click()//触发click
         expect(spy).to.have.been.called()//主观判断我期待spy间谍函数被调用
     }
